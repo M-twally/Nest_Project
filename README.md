@@ -7,8 +7,8 @@ A **NestJS** backend for a simple digital wallet: users sign up, verify their em
 - **Auth**: sign-up and sign-in with JWT (`@nestjs/jwt`)
 - **Email verification** with a one-time code (`sendEmailOTP`, `verifyEmail`)
 - **Users**: profile endpoint
-- **Wallets**: create and update a wallet, set a spending **limit**, calculate the balance
-- **Transactions**: record and list transactions
+- **Wallets**: create and update a wallet, set a spending **limit**, calculate the balance, fetch your wallet
+- **Transactions**: transaction schema and service, listed through `GET /user/getTransaction`
 - **Role decorator and auth guard** for protected routes
 - Request validation with **Joi** (custom pipe) and `class-validator`
 
@@ -17,15 +17,14 @@ A **NestJS** backend for a simple digital wallet: users sign up, verify their em
 | Prefix | Routes |
 |---|---|
 | `/auth` | `POST signup`, `POST signin` |
-| `/user` | `GET profile`, `POST verifyEmail`, `GET sendEmailOTP` |
-| `/wallet` | `POST CreateWallet`, `POST UpdateWallet`, `PUT Addlimit`, `PUT CalculateBalance`, `GET getWallet` |
-| `/transaction` | `GET getTransaction` |
+| `/user` | `GET profile`, `POST verifyEmail`, `GET sendEmailOTP`, `GET getWallet`, `GET getTransaction` |
+| `/wallet` | `POST CreateWallet`, `POST UpdateWallet`, `PUT Addlimit`, `PUT CalculateBalance` |
 
 ## Tech stack
 
 - NestJS, TypeScript
 - MongoDB with Mongoose (`@nestjs/mongoose`)
-- JWT, Joi, Nodemailer-style mail service
+- JWT, Joi, Nodemailer
 
 ## Project structure
 
